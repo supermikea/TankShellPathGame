@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b41v6rf4cmen5"]
+
+[ext_resource type="Script" uid="uid://tmsccrlko063" path="res://scripts/tank.gd" id="1_gyojk"]
+[ext_resource type="Texture2D" uid="uid://dygmr4m0fd8nr" path="res://assets/tank.png" id="1_y4li5"]
+[ext_resource type="Texture2D" uid="uid://b6vg4in25h0w0" path="res://assets/gun.png" id="2_cpxye"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gyojk"]
+radius = 17.0
+height = 122.0
+
+[node name="Tank" type="CharacterBody2D"]
+script = ExtResource("1_gyojk")
+
+[node name="TankSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_y4li5")
+
+[node name="TankCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(43, 56, 90, 80, 89, 99, 36, 121, -36, 121, -92, 100, -90, 78, -50, 58, -49, -7, -49, -7, 43, -6)
+
+[node name="GunMountPoint" type="StaticBody2D" parent="."]
+
+[node name="GunSprite" type="Sprite2D" parent="GunMountPoint"]
+texture = ExtResource("2_cpxye")
+
+[node name="GunCollision" type="CollisionShape2D" parent="GunMountPoint"]
+position = Vector2(0, -25)
+shape = SubResource("CapsuleShape2D_gyojk")
