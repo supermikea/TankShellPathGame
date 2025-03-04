@@ -9,4 +9,6 @@
 position = Vector2(102, -136)
 is_player = true
 
+[node name="Camera" type="Camera2D" parent="Tank"]
+
 [node name="Ground" parent="." instance=ExtResource("1_hat22")]
