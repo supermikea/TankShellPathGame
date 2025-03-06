@@ -10,5 +10,6 @@ position = Vector2(159, -282)
 is_player = true
 
 [node name="Camera" type="Camera2D" parent="Tank"]
+position_smoothing_enabled = true
 
 [node name="Ground" parent="." instance=ExtResource("1_hat22")]
