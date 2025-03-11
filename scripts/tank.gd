@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 @export var rotate_sensitivity: float = 1.0
 
+var StaticBullet = preload("res://scenes/StaticBullet.tscn")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta: float) -> void:
@@ -18,3 +19,11 @@ func _physics_process(delta: float) -> void:
 	
 	var rotate_direction = Input.get_axis("rotate_gun_left", "rotate_gun_right")
 	%GunMountPoint.rotation_degrees += rotate_direction * rotate_sensitivity
+	
+	if Input.is_action_just_pressed("shoot"): # TODO
+		print("shot") # 
+		var bullet :=  StaticBullet.instantiate()
+		# bullet.rotation = %GunMountPoint.rotation
+		bullet.position = %GunMountPoint.get_child(2).position
+		
+		get_tree().get_root().add_child(bullet)

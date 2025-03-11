@@ -44,3 +44,6 @@ texture = ExtResource("2_cpxye")
 [node name="GunCollision" type="CollisionShape2D" parent="GunMountPoint"]
 position = Vector2(0, -25)
 shape = SubResource("CapsuleShape2D_gyojk")
+
+[node name="BulletSpawnLocation" type="Node2D" parent="GunMountPoint"]
+position = Vector2(0, -87)
