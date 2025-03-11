@@ -5,31 +5,36 @@
 [ext_resource type="Texture2D" uid="uid://b6vg4in25h0w0" path="res://assets/gun.png" id="2_cpxye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0heh6"]
-size = Vector2(95, 56)
+size = Vector2(95, 61)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyojk"]
-size = Vector2(188, 79)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0heh6"]
+radius = 36.5
+height = 182.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gyojk"]
 radius = 17.0
 height = 122.0
 
 [node name="Tank" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_gyojk")
 
 [node name="TankSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_y4li5")
 
 [node name="TankBodyCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 20)
+position = Vector2(-1.5, 22.5)
 shape = SubResource("RectangleShape2D_0heh6")
-disabled = true
 
 [node name="TankTracksCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 88.5)
-shape = SubResource("RectangleShape2D_gyojk")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0heh6")
 
 [node name="GunMountPoint" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
 
 [node name="GunSprite" type="Sprite2D" parent="GunMountPoint"]
 texture = ExtResource("2_cpxye")
@@ -37,4 +42,3 @@ texture = ExtResource("2_cpxye")
 [node name="GunCollision" type="CollisionShape2D" parent="GunMountPoint"]
 position = Vector2(0, -25)
 shape = SubResource("CapsuleShape2D_gyojk")
-disabled = true
