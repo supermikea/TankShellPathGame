@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var is_player: bool = false
 @export var speed: float = 300.0
+@export var rotate_sensitivity: float = 1.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -11,6 +12,9 @@ func _physics_process(delta: float) -> void:
 	
 	var direction = Input.get_axis("move_left", "move_right")
 	velocity.x = direction * speed # maybe add delta? idk needs testing | silvijn: nee vgm heeft physics_process dat built in ofzo
-	print(velocity)
-	print(is_on_floor())
+	# print(velocity)
+	# print(is_on_floor())
 	move_and_slide()
+	
+	var rotate_direction = Input.get_axis("rotate_gun_left", "rotate_gun_right")
+	%GunMountPoint.rotation_degrees += rotate_direction * rotate_sensitivity
