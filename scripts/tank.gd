@@ -24,6 +24,5 @@ func _physics_process(delta: float) -> void:
 		print("shot") # 
 		var bullet :=  StaticBullet.instantiate()
 		# bullet.rotation = %GunMountPoint.rotation
-		bullet.position = %GunMountPoint.get_child(2).position
-		
-		get_tree().get_root().add_child(bullet)
+		bullet.position = %BulletSpawnLocation.global_position
+		get_tree().root.add_child(bullet)
